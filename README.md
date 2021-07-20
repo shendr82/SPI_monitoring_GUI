@@ -1,6 +1,6 @@
 # Beam_viewer_GUI
 
-Running TDMS_connect_with_GUI3.py file should start the "SPI monitoring GUI" app.
+Running SPI_connect_GUI_new.py file should start the "SPI monitoring GUI" app.
 
 Files needed to run app:
 	spi_class_new.py
