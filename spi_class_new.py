@@ -51,7 +51,7 @@ class SPI_tDMS_Data(object):
     def get_data_nparray(self, channel='TimeStamp'):
         channels_data = self.tdms_file.object(self.groups[0], channel)
         data = channels_data.data
-        unit = channels_data.property('unit_string') #-------------Unit
+        unit = channels_data.property('Unit') #-------------Unit
         nparray = np.array(data)
         return [nparray, unit]
     
