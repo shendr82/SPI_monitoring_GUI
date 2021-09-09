@@ -1,4 +1,4 @@
-# Beam_viewer_GUI
+# SPI_monitoring_GUI
 
 Running SPI_connect_GUI_new.py file should start the "SPI monitoring GUI" app.
 
