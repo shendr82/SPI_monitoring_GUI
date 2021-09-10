@@ -36,9 +36,13 @@ class SPI_GUI(QtWidgets.QMainWindow, Ui_MainWindow):
             # Open file with GUI - button or Ctrl+O
         self.menuFile.triggered.connect((lambda: self.open_file()))
         self.actionOpen_TDMS_file.setShortcut('Ctrl+O')
+        
+            # Set up TextBox - for adding text messages
+        self.setup_logbook()
             
             # Button cliked - select channel from list
-        self.ParamterPlot_button.clicked.connect(lambda: self.spi_tdms.plot_clicked(self.Big_graphicsView, self.listitemclicked()))
+        self.ParamterPlot_button.clicked.connect(lambda: self.plot_button(self.Big_graphicsView, self.selected_item))
+        
         
 
         # After a file is opened - update GUI        
@@ -57,9 +61,29 @@ class SPI_GUI(QtWidgets.QMainWindow, Ui_MainWindow):
         # Button cliked - select channel from list
     def listitemclicked(self):
         self.selected_item = self.Parameter_listView.currentItem().text()
-        print('Item in the list is clicked:  ' + self.selected_item)
+        self.logbook.append('Item in the list is clicked:  ' + self.selected_item)
         return self.selected_item
+    
+    
+        # Set up TextBox - for adding messages
+    def setup_logbook(self, text='check'):
+        self.logbook = self.Big_textBrowser
+        font = self.logbook.font()
+        font.setFamily("Courier")
+        font.setPointSize(8)        
+        self.logbook.append("Welcome to SPI sensor data: Open file")
+        self.logbook.moveCursor(QtGui.QTextCursor.End)
+        self.logbook.setStyleSheet("color: black; background-color: white;")
+        self.logbook.ensureCursorVisible()
         
+        
+        # When Plot Button is pushed - running this method
+    def plot_button(self, canvas, item):
+        try:
+            self.spi_tdms.plot_clicked(canvas, item)
+            self.logbook.append('Plotting selected item: ' + item)
+        except:
+            self.logbook.append("No item selected")
         
 
     # Canvas on GUI to plot on

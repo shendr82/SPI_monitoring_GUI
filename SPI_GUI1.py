@@ -84,8 +84,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addWidget(self.Advanced_tab)
         self.gridLayout.addLayout(self.verticalLayout_3, 1, 2, 3, 1)
         self.ShotID_box = QtWidgets.QLineEdit(self.centralwidget)
-        self.ShotID_box.setMinimumSize(QtCore.QSize(300, 30))
-        self.ShotID_box.setMaximumSize(QtCore.QSize(300, 30))
+        self.ShotID_box.setMinimumSize(QtCore.QSize(360, 30))
+        self.ShotID_box.setMaximumSize(QtCore.QSize(360, 30))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.ShotID_box.setFont(font)
@@ -151,9 +151,9 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.Parameters_group.setTitle(_translate("MainWindow", "List of parameters"))
-        self.ParamterPlot_button.setText(_translate("MainWindow", "Plot chosen parameter"))
-        self.Advanced_tab.setTabText(self.Advanced_tab.indexOf(self.tab_6), _translate("MainWindow", "Advanced"))
+        self.Parameters_group.setTitle(_translate("MainWindow", "List of sensors"))
+        self.ParamterPlot_button.setText(_translate("MainWindow", "Plot sensor data"))
+        self.Advanced_tab.setTabText(self.Advanced_tab.indexOf(self.tab_6), _translate("MainWindow", "Sensors"))
         self.ShotID_box.setText(_translate("MainWindow", "shotID"))
         self.SPI_sensor_title.setText(_translate("MainWindow", "SPI sensor data"))
         self.ShotID_label.setText(_translate("MainWindow", "Shot ID:"))
